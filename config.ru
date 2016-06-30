@@ -8,6 +8,8 @@ app = proc do |env|
   elsif env['PATH_INFO'] == '/set'
     blank_gif = Base64.decode64 'R0lGODlhBQAFAJH/AP///wAAAMDAwAAAACH5BAEAAAIALAAAAAAFAAUAAAIElI+pWAA7\n'
     [200, { 'Content-Type' => 'image/gif', 'Set-Cookie' => 'foo=bar' }, [blank_gif]]
+  else
+    [204, {}, []]
   end
 end
 
